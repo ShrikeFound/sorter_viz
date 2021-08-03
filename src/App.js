@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import React, {Component} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+    constructor() {
+        super()
+        this.state = {
+            initialData: [100,40,25,45,12,0,983,50,22,396,374,308],
+            sortingMethod: "bubble sort",
+            sortingOptions: ["bubble sort","merge sort","some other sort","another sort","last sort(?)"]
+        } 
+
+    }
+
+    handleChange = (evt) =>{
+        const newSortingMethod = evt.target.value
+        this.setState({sortingMethod: newSortingMethod})
+    }
+
+
+    render(){
+        return(
+            <>
+                <h1>Sorting Algorithm Visualizations</h1>
+                <div className="initial-data">
+                    <h3>Information Panel</h3>
+                    <p>Initial Data:</p>
+                    <p>{`[${this.state.initialData}]`}</p>
+                    <p>{`Sorting Method: ${this.state.sortingMethod}`}</p>
+                </div>
+
+
+                {/* TODO: this should be a separate component */}
+                <div className="algorithm-picker">
+                    <h3>Select a Sorting Algorithm</h3>
+                    <select value={this.state.sortingMethod} onChange ={(evt) =>this.handleChange(evt)}>
+                        {this.state.sortingOptions.map((value,index) =>{
+                            return <option key={index} value ={value}>{value}</option>
+                        })}
+                    </select>
+                </div>
+
+                <div className="algorithm-steps">
+                    <h3>Algorithm steps displayed here</h3>
+                </div>
+            </>
+        )
+    }
 }
 
-export default App;
+
+export default App
+
+
+//Alright! So I'm thinking we can start with a couple components:
+//a 
