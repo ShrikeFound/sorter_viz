@@ -1,5 +1,6 @@
 import './App.scss';
 import React, {Component} from 'react'
+import BubbleSort from './components/BubbleSort'
 
 class App extends Component{
     constructor() {
@@ -8,7 +9,7 @@ class App extends Component{
             initialData: [100,40,25,45,12,0,983,50,22,396,374,308],
             sortingMethod: "bubble sort",
             sortingOptions: ["bubble sort","merge sort","some other sort","another sort","last sort(?)"]
-        } 
+        }
 
     }
 
@@ -42,6 +43,7 @@ class App extends Component{
 
                 <div className="algorithm-steps">
                     <h3>Algorithm steps displayed here</h3>
+                    {this.state.sortingMethod === "bubble sort" && <BubbleSort data={this.state.initialData}/>}
                 </div>
             </>
         )
@@ -53,4 +55,4 @@ export default App
 
 
 //Alright! So I'm thinking we can start with a couple components:
-//a 
+//a
