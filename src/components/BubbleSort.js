@@ -22,6 +22,7 @@ const BubbleSort = (props) => {
     }
 
     setSteps(sortingSteps)
+    console.log(steps)
 
     return initialArray
   }
@@ -35,34 +36,18 @@ const BubbleSort = (props) => {
 
   return (
     <>
-      <li>
-        Our bubble-sort algorithm looks like this:
-      </li>
-      <li>
-        for i -> 0 to arrayLength
-      </li>
-      <li>
-        for j -> 0 to (arrayLength - i - 1)
-      </li>
-      <li>
-        if arr[j] > arr[j + 1]
-      </li>
-      <li>
-        swap(arr[j], arr[j + 1])}
-      </li>
-      <li>
-        So our steps for processing data looks like this:
-      </li>
-      <li id="processedData">
-        {/* {steps.map((step, index) => {
+      <ul id="processedData">
+        {steps.map((step, index) => {
           return (
             <SortStep key={index} data={step} />
           )
-        })} */}
-      </li>
+        })}
+      </ul>
       <li>
         Our fully sorted data:
-        {/* <SortStep data={sortedData} /> */}
+        {sortedData.map((value, key) => {
+          <SortStep key={key} data={value} />
+        })}
       </li>
     </>
   )

@@ -43,7 +43,28 @@ class App extends Component{
 
                 <div className="algorithm-steps">
                     <h3>Algorithm steps displayed here</h3>
-                    {this.state.sortingMethod === "bubble sort" && <BubbleSort data={this.state.initialData}/>}
+                  {this.state.sortingMethod === "bubble sort" && (<>
+                      <li>
+                        Our bubble-sort algorithm looks like this:
+                      </li>
+                      <li>
+                        for i -> 0 to arrayLength
+                      </li>
+                      <li>
+                        for j -> 0 to (arrayLength - i - 1)
+                      </li>
+                      <li>
+                        if arr[j] > arr[j + 1]
+                      </li>
+                      <li>
+                        swap(arr[j], arr[j + 1])}
+                      </li>
+                      <li>
+                        So our steps for processing data looks like this:
+                      </li>
+                    <BubbleSort data={this.state.initialData}/>
+                  </>)
+                  }
                 </div>
             </>
         )
