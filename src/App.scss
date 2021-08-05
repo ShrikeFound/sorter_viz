@@ -14,3 +14,9 @@
   display: flex;
   flex-flow: row;
 }
+
+.oneline{
+  display: flex;
+  flex-flow: row;
+  align-content: space-between;
+}
