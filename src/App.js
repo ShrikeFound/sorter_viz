@@ -1,6 +1,7 @@
 import './App.scss';
 import React, {Component} from 'react'
 import BubbleSort from './components/BubbleSort'
+import AlgorithmPicker from './components/AlgorithmPicker'
 
 class App extends Component{
     constructor() {
@@ -30,16 +31,7 @@ class App extends Component{
                     <p>{`Sorting Method: ${this.state.sortingMethod}`}</p>
                 </div>
 
-
-                {/* TODO: this should be a separate component */}
-                <div className="algorithm-picker">
-                    <h3>Select a Sorting Algorithm</h3>
-                    <select value={this.state.sortingMethod} onChange ={(evt) =>this.handleChange(evt)}>
-                        {this.state.sortingOptions.map((value,index) =>{
-                            return <option key={index} value ={value}>{value}</option>
-                        })}
-                    </select>
-                </div>
+                <AlgorithmPicker handleChange={this.handleChange} sortingOptions={this.state.sortingOptions}/>
 
                 <div className="algorithm-steps">
                     <h3>Algorithm steps displayed here</h3>
