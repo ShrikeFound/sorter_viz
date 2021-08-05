@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import SortStep from './SortStep'
+import SortingSteps from './SortingSteps/Index'
+import SortStep from './SortingSteps/SortStep'
 
 const BubbleSort = (props) => {
   const [steps, setSteps] = useState([])
@@ -22,6 +23,7 @@ const BubbleSort = (props) => {
     }
 
     setSteps(sortingSteps)
+    props.updateSortedSteps(sortingSteps)
     console.log(steps)
 
     return initialArray
@@ -36,13 +38,8 @@ const BubbleSort = (props) => {
 
   return (
     <>
-      <ul id="processedData">
-        {steps.map((step, index) => {
-          return (
-            <SortStep key={index} data={step} />
-          )
-        })}
-      </ul>
+
+      <SortingSteps sortedSteps={props.sortedSteps} />
       <li>
         Our fully sorted data:
         {sortedData.map((value, key) => {
