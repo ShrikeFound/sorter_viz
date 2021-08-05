@@ -10,6 +10,7 @@ const AlgorithmPicker = (props) => {
           return <option key={index} value={value}>{value}</option>
         })}
       </select>
+      {/* switch future 'render steps' state to on */}
       <button onClick={() => props.updateSortedSteps("test")}>Sort Data</button>
     </div>
   )

@@ -1,6 +1,5 @@
 import './App.scss';
 import React, { Component } from 'react'
-import BubbleSort from './components/BubbleSort'
 import AlgorithmPicker from './components/AlgorithmPicker'
 import AlgorithmSteps from './components/AlgorithmSteps';
 
@@ -16,6 +15,7 @@ class App extends Component {
 
   }
 
+  // update to switch future 'render steps' state off
   handleAlgorithmSelect = (evt) => {
     const newSortingMethod = evt.target.value
     this.setState({ sortingMethod: newSortingMethod })
