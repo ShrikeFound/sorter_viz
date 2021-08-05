@@ -1,51 +1,52 @@
 import './App.scss';
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import BubbleSort from './components/BubbleSort'
+import AlgorithmPicker from './components/AlgorithmPicker'
+import AlgorithmSteps from './components/AlgorithmSteps';
 
-class App extends Component{
-    constructor() {
-        super()
-        this.state = {
-            initialData: [100,40,25,45,12,0,983,50,22,396,374,308],
-            sortingMethod: "bubble sort",
-            sortingOptions: ["bubble sort","merge sort","some other sort","another sort","last sort(?)"]
-        } 
-
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      initialData: [100, 40, 25, 45, 12, 0, 983, 50, 22, 396, 374, 308],
+      sortingMethod: "bubble sort",
+      sortingOptions: ["bubble sort", "merge sort", "some other sort", "another sort", "last sort(?)"],
+      sortedSteps: []
     }
 
-    handleChange = (evt) =>{
-        const newSortingMethod = evt.target.value
-        this.setState({sortingMethod: newSortingMethod})
-    }
+  }
+
+  handleAlgorithmSelect = (evt) => {
+    const newSortingMethod = evt.target.value
+    this.setState({ sortingMethod: newSortingMethod })
+  }
+
+  updateSortedSteps = (sortingSteps) => {
+    console.log("new sorting steps: ", sortingSteps)
+    this.setState({ sortedSteps: sortingSteps })
+  }
 
 
-    render(){
-        return(
-            <>
-                <h1>Sorting Algorithm Visualizations</h1>
-                <div className="initial-data">
-                    <h3>Information Panel</h3>
-                    <p>Initial Data:</p>
-                    <p>{`[${this.state.initialData}]`}</p>
-                    <p>{`Sorting Method: ${this.state.sortingMethod}`}</p>
-                </div>
+  render() {
+    console.log("current sorted steps: ", this.state.sortedSteps)
+    return (
+      <>
+        <h1>Sorting Algorithm Visualizations</h1>
+        <div className="initial-data">
+          <h3>Information Panel</h3>
+          <p>Initial Data:</p>
+          <p>{`[${this.state.initialData}]`}</p>
+          <p>{`Sorting Method: ${this.state.sortingMethod}`}</p>
+        </div>
 
+        <AlgorithmPicker handleAlgorithmSelect={this.handleChange} sortingOptions={this.state.sortingOptions} updateSortedSteps={this.updateSortedSteps} />
 
-                {/* TODO: this should be a separate component */}
-                <div className="algorithm-picker">
-                    <h3>Select a Sorting Algorithm</h3>
-                    <select value={this.state.sortingMethod} onChange ={(evt) =>this.handleChange(evt)}>
-                        {this.state.sortingOptions.map((value,index) =>{
-                            return <option key={index} value ={value}>{value}</option>
-                        })}
-                    </select>
-                </div>
+        {/* if sorting method is bubble sort, we can display the pseudocode and the sorting steps */}
+        {this.state.sortingMethod === "bubble sort" && <AlgorithmSteps initialData={this.state.initialData} updateSortedSteps={this.updateSortedSteps} sortedSteps={this.state.sortedSteps} />}
 
-                <div className="algorithm-steps">
-                    <h3>Algorithm steps displayed here</h3>
-                </div>
-            </>
-        )
-    }
+      </>
+    )
+  }
 }
 
 
@@ -53,4 +54,4 @@ export default App
 
 
 //Alright! So I'm thinking we can start with a couple components:
-//a 
+//a
