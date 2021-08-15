@@ -7,34 +7,34 @@ const BubbleSort = (props) => {
   const [sortedData, setSortedData] = useState([])
   const [refresh, setRefresh] = useState(0)
 
-  const bubbleSortArray = arr => {
-    console.log(arr)
-    const initialArray = new Array(...arr)
-    const sortingSteps = []
+  // const bubbleSortArray = arr => {
+  //   console.log(arr)
+  //   const initialArray = new Array(...arr)
+  //   const sortingSteps = []
 
-    for (let i = 0; i < initialArray.length; i++) {
-      for (let j = 0; j < initialArray.length - i - 1; j++) {
-        sortingSteps.push([...initialArray])
-        // console.log(sortingSteps)
-        if (initialArray[j] > initialArray[j + 1]) {
-          [initialArray[j], initialArray[j + 1]] = [initialArray[j + 1], initialArray[j]]
-        }
-      }
-    }
+  //   for (let i = 0; i < initialArray.length; i++) {
+  //     for (let j = 0; j < initialArray.length - i - 1; j++) {
+  //       sortingSteps.push([...initialArray])
+  //       // console.log(sortingSteps)
+  //       if (initialArray[j] > initialArray[j + 1]) {
+  //         [initialArray[j], initialArray[j + 1]] = [initialArray[j + 1], initialArray[j]]
+  //       }
+  //     }
+  //   }
 
-    setSteps(sortingSteps)
-    props.updateSortedSteps(sortingSteps)
-    console.log(steps)
+  //   setSteps(sortingSteps)
+  //   props.updateSortedSteps(sortingSteps)
+  //   console.log(steps)
 
-    return initialArray
-  }
+  //   return initialArray
+  // }
 
   // const sortedArray = bubbleSortArray(props.data)
 
-  useEffect(() => {
-    setSortedData(bubbleSortArray(props.data))
-  }
-    , [refresh])
+  // useEffect(() => {
+  //   setSortedData(bubbleSortArray(props.data))
+  // }
+  //   , [refresh])
 
   return (
     <>

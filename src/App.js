@@ -10,7 +10,8 @@ class App extends Component {
       initialData: [100, 40, 25, 45, 12, 0, 983, 50, 22, 396, 374, 308],
       sortingMethod: "bubble sort",
       sortingOptions: ["bubble sort", "merge sort", "some other sort", "another sort", "last sort(?)"],
-      sortedSteps: []
+      sortedSteps: [],
+      sortedData: []
     }
 
   }
@@ -39,11 +40,12 @@ class App extends Component {
           <p>{`Sorting Method: ${this.state.sortingMethod}`}</p>
         </div>
 
-        <AlgorithmPicker handleAlgorithmSelect={this.handleChange} sortingOptions={this.state.sortingOptions} updateSortedSteps={this.updateSortedSteps} />
+        <AlgorithmPicker sortingMethod={this.state.sortingMethod} handleAlgorithmSelect={this.handleAlgorithmSelect} sortingOptions={this.state.sortingOptions} updateSortedSteps={this.updateSortedSteps} />
 
         {/* if sorting method is bubble sort, we can display the pseudocode and the sorting steps */}
-        {this.state.sortingMethod === "bubble sort" && <AlgorithmSteps initialData={this.state.initialData} updateSortedSteps={this.updateSortedSteps} sortedSteps={this.state.sortedSteps} />}
-
+        {/* {this.state.sortingMethod === "bubble sort" && <AlgorithmSteps initialData={this.state.initialData} updateSortedSteps={this.updateSortedSteps} sortedSteps={this.state.sortedSteps} />} */}
+        {"sorted data: "+this.state.sortedData}
+        {"sorted steps: "+this.state.sortedSteps}
       </>
     )
   }

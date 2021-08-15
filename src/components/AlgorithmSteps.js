@@ -1,34 +1,17 @@
 import React from 'react'
-import BubbleSort from './BubbleSort'
+import BubbleSteps from './BubbleSteps'
 
-const AlgorithmSteps = ({ initialData, updateSortedSteps, sortedSteps }) => {
+const AlgorithmSteps = ({ sortingMethod }) => {
+
+
+
+
   return (
     <div className="algorithm-steps">
-      <h3>Algorithm steps displayed here</h3>
-      <ul>
-
-        <li>
-          Our bubble-sort algorithm looks like this:
-        </li>
-        <li>
-          for i -> 0 to arrayLength
-        </li>
-        <li>
-          for j -> 0 to (arrayLength - i - 1)
-        </li>
-        <li>
-          if arr[j] > arr[j + 1]
-        </li>
-        <li>
-          swap(arr[j], arr[j + 1])
-        </li>
-        <li>
-          So our steps for processing data looks like this:
-        </li>
-      </ul>
+      <h3>Our {sortingMethod} algorithm looks like this</h3>
+      {sortingMethod === "bubble sort" && <BubbleSteps/>}
 
 
-      <BubbleSort data={initialData} updateSortedSteps={updateSortedSteps} sortedSteps={sortedSteps} />
     </div>
   )
 }
