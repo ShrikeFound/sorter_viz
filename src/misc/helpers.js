@@ -6,7 +6,7 @@
 
 //bubble sort from Kelen
 
-const bubbleSortArray = arr => {
+export const bubbleSortArray = arr => {
   console.log(arr)
   const initialArray = new Array(...arr)
   const sortingSteps = []
@@ -22,4 +22,8 @@ const bubbleSortArray = arr => {
   }
 
   return [initialArray,sortingSteps]
+}
+
+export const connectionAlert = () =>{
+  alert("Working!");
 }

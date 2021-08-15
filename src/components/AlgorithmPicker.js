@@ -1,6 +1,6 @@
 import React from 'react'
 import AlgorithmSteps from './AlgorithmSteps'
-
+import { connectionAlert } from '../misc/helpers'
 const AlgorithmPicker = ({handleAlgorithmSelect,sortingOptions,updateSortedSteps,sortingMethod}) => {
   return (
     <div className="algorithm-picker">
@@ -12,7 +12,7 @@ const AlgorithmPicker = ({handleAlgorithmSelect,sortingOptions,updateSortedSteps
       </select>
 
       {/* switch future 'render steps' state to on */}
-      <button onClick={() => updateSortedSteps("test")}>Sort Data</button>
+      <button onClick={() => connectionAlert()}>Sort Data</button>
         <AlgorithmSteps sortingMethod={sortingMethod}/>
     </div>
   )
